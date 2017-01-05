@@ -32,27 +32,9 @@ public class AgentScanner extends ClassScanner {
         if (data == null) return false;
 
         for (MethodInfo agent : agentMethods) {
-            if (data.getMethod(agent) != null) {
-                InsnList list = data.getMethod(agent).getInstructions();
-                System.out.println(data.getMethod(agent).getNode().name);
-                for(int i = 0; i < list.size(); i++){
-                    System.out.print(insnToString(list.get(i)));
-                }
-                return true;
-            }
+            if (data.getMethod(agent) != null) return true;
         }
 
         return false;
     }
-
-    public static String insnToString(AbstractInsnNode insn){
-        insn.accept(mp);
-        StringWriter sw = new StringWriter();
-        printer.print(new PrintWriter(sw));
-        printer.getText().clear();
-        return sw.toString();
-    }
-
-    private static Printer printer = new Textifier();
-    private static TraceMethodVisitor mp = new TraceMethodVisitor(printer);
 }
