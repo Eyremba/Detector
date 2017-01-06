@@ -27,8 +27,6 @@ public class ConsStringScanner extends ClassScanner {
         MethodData init = data.getInit();
         if (init == null) return false;
 
-        System.out.println(Arrays.toString(badStrings));
-
         InsnList instructions = init.getInstructions();
         for (int i = 0; i < instructions.size(); i++) {
             AbstractInsnNode abstractInsnNode = instructions.get(i);
