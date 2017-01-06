@@ -14,10 +14,20 @@ public class ClassData {
     private ClassNode node;
     private String path;
 
-    protected ClassData(List<MethodData> methods, ClassNode node, String path) {
+    private MethodData INIT;
+    private MethodData CLINIT;
+
+    ClassData(List<MethodData> methods, ClassNode node, String path) {
         this.methods = methods;
         this.node = node;
         this.path = path;
+
+        for (MethodData method : methods) {
+            if (method.getInfo().getName().equalsIgnoreCase("<init>"))
+                INIT = method;
+            if (method.getInfo().getName().equalsIgnoreCase("<clinit>"))
+                CLINIT = method;
+        }
     }
 
     public ClassNode getNode() {
@@ -31,6 +41,14 @@ public class ClassData {
                 return method;
         }
         return null;
+    }
+
+    public MethodData getInit() {
+        return this.INIT;
+    }
+
+    public MethodData getCLInit() {
+        return this.CLINIT;
     }
 
     public String getClassPath() {

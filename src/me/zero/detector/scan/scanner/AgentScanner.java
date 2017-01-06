@@ -27,7 +27,6 @@ public class AgentScanner extends ClassScanner {
     @Override
     public boolean scan(Class<?> clazz) {
         if (clazz == null) return false;
-
         ClassData data = ClassPool.getPool().getClassData(clazz);
         if (data == null) return false;
 

@@ -22,17 +22,7 @@ public class ClassPool {
 
     private final List<ClassData> classes = new ArrayList<>();
 
-    public static void init() {
-        if (pool != null) return;
-        pool = new ClassPool();
-
-        try {
-            Iterator<Class<?>> classes = list(ClassLoader.getSystemClassLoader());
-            while (classes.hasNext()) {
-                pool.classes.add(genClassData(classes.next()));
-            }
-        } catch (Exception e) {}
-    }
+    private static boolean debug = true;
 
     public static void init(Instrumentation instrumentation) {
         if (pool != null) return;
@@ -46,16 +36,19 @@ public class ClassPool {
     }
 
     public ClassData getClassData(Class<?> clazz) {
-        for (ClassData data : this.classes) {
-            if (data.getClassPath().equalsIgnoreCase(clazz.getCanonicalName().replace(".", "/") + ".class")) {
-                return data;
+        if (debug) {
+            return genClassData(clazz);
+        } else {
+            for (ClassData data : this.classes) {
+                if (data.getClassPath().equalsIgnoreCase(clazz.getCanonicalName().replace(".", "/") + ".class")) {
+                    return data;
+                }
             }
         }
         return null;
     }
 
     private static ClassData genClassData(Class<?> clazz) {
-        System.out.println(clazz);
         try {
             String classPath = clazz.getCanonicalName().replace(".", "/") + ".class";
             InputStream in = ClassLoader.getSystemResourceAsStream(classPath);
@@ -78,18 +71,10 @@ public class ClassPool {
         return null;
     }
 
-    private static Iterator list(ClassLoader classLoader) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-        Class clClass = classLoader.getClass();
-        while (clClass != java.lang.ClassLoader.class) {
-            clClass = clClass.getSuperclass();
-        }
-        Field classesField = clClass.getDeclaredField("classes");
-        classesField.setAccessible(true);
-        Vector classes = (Vector) classesField.get(classLoader);
-        return classes.iterator();
-    }
-
     public static ClassPool getPool() {
+        if (pool == null && debug)
+            pool = new ClassPool();
+
         return ClassPool.pool;
     }
 }
