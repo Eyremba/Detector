@@ -8,7 +8,7 @@ import java.lang.instrument.Instrumentation;
 /**
  * Created by Brady on 1/3/2017.
  */
-public class AgentScanner extends ClassScanner {
+public class AgentScanner implements ClassScanner {
 
     private static final MethodInfo[] agentMethods = new MethodInfo[] {
             new MethodInfo("agentmain", void.class, String.class),

@@ -12,7 +12,7 @@ import org.objectweb.asm.tree.LdcInsnNode;
 /**
  * Created by Brady on 1/5/2017.
  */
-public class ConsStringScanner extends ClassScanner {
+public class ConsStringScanner implements ClassScanner {
 
     private static String[] badStrings = InternalFileReader.read("res/strings.txt").split("\n");
 

@@ -11,7 +11,7 @@ import java.lang.instrument.Instrumentation;
 public class TestMain extends TestObject {
 
     // Testing Stuff
-    public TestMain() { super("lol"); }
+    public TestMain() { super("aimbot"); }
     public static void agentmain(String args, Instrumentation instrumentation) { }
 
     public static void main(String[] args) {
