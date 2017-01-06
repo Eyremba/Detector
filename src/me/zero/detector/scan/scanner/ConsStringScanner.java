@@ -9,8 +9,6 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.LdcInsnNode;
 
-import java.util.Arrays;
-
 /**
  * Created by Brady on 1/5/2017.
  */

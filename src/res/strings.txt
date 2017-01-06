@@ -2,6 +2,7 @@ killaura
 aura
 wtap
 fly
+flight
 aim
 aimassist
 autoaim
