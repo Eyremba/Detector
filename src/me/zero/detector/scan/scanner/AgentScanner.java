@@ -2,14 +2,7 @@ package me.zero.detector.scan.scanner;
 
 import me.zero.detector.data.*;
 import me.zero.detector.scan.ClassScanner;
-import org.objectweb.asm.tree.AbstractInsnNode;
-import org.objectweb.asm.tree.InsnList;
-import org.objectweb.asm.util.Printer;
-import org.objectweb.asm.util.Textifier;
-import org.objectweb.asm.util.TraceMethodVisitor;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
+;
 import java.lang.instrument.Instrumentation;
 
 /**
