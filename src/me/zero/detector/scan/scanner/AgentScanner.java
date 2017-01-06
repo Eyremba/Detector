@@ -2,7 +2,7 @@ package me.zero.detector.scan.scanner;
 
 import me.zero.detector.data.*;
 import me.zero.detector.scan.ClassScanner;
-;
+
 import java.lang.instrument.Instrumentation;
 
 /**
