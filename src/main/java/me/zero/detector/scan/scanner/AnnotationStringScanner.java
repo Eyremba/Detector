@@ -1,6 +1,5 @@
 package me.zero.detector.scan.scanner;
 
-import com.google.common.collect.ImmutableList;
 import me.zero.detector.scan.ScanResult;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
