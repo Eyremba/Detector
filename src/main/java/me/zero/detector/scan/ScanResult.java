@@ -16,18 +16,18 @@ public interface ScanResult {
     String getResult();
 
     static ScanResult method(MethodNode mn) {
-        return () -> "M-" + mn.name + mn.desc;
+        return () -> "M_" + mn.name + mn.desc;
     }
 
     static ScanResult method(MethodNode mn, AbstractInsnNode insn) {
-        return () -> "M-" + mn.name + mn.desc + "@INSN-" + mn.instructions.indexOf(insn);
+        return () -> "M_" + mn.name + mn.desc + "@INSN_" + mn.instructions.indexOf(insn);
     }
 
     static ScanResult annotation(AnnotationNode an) {
-        return () -> "A-" + an.desc;
+        return () -> "A_" + an.desc;
     }
 
     static ScanResult annotation(AnnotationNode an, Object value) {
-        return () -> "A-" + an.desc + "@VALUE-" + an.values.indexOf(value);
+        return () -> "A_" + an.desc + "@VALUE_" + an.values.indexOf(value);
     }
 }
