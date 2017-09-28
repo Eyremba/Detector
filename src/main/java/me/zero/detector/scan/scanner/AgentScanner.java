@@ -5,7 +5,6 @@ import me.zero.detector.scan.ScanResult;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
  */
 public final class AgentScanner implements ClassScanner {
 
-    private static final List<String> AGENT_METHODS = Arrays.asList(
+    private static final List<String> AGENT_METHODS = List.of(
             "agentmain(Ljava/lang/String;)V",
             "agentmain(Ljava/lang/String;Ljava/lang/instrument/Instrumentation;)V",
             "premain(Ljava/lang/String;)V",
