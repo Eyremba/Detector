@@ -3,6 +3,7 @@ package me.zero.detector.scan.scanner;
 import me.zero.detector.scan.ClassScanner;
 import me.zero.detector.util.io.InternalFileReader;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,5 +12,5 @@ import java.util.List;
  */
 abstract class StringScanner implements ClassScanner {
 
-    static List<String> BAD_STRINGS = List.of(InternalFileReader.read("strings.txt").split("\n"));
+    static List<String> BAD_STRINGS = Arrays.asList(InternalFileReader.read("strings.txt").split("\n"));
 }
