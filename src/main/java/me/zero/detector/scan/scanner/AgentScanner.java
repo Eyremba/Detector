@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by Brady on 1/3/2017.
+ * @author Brady
+ * @since 1/5/2017 12:00 PM
  */
 public final class AgentScanner implements ClassScanner {
 

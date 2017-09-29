@@ -10,7 +10,8 @@ import java.lang.instrument.Instrumentation;
 import java.util.List;
 
 /**
- * Created by Brady on 1/6/2017.
+ * @author Brady
+ * @since 1/6/2017 12:00 PM
  */
 @TestAnnotation("aimbot")
 public class TestMain extends TestObject {

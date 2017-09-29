@@ -1,7 +1,9 @@
 package me.zero.detector.scan.scanner;
 
 import me.zero.detector.scan.ScanResult;
-import org.objectweb.asm.tree.*;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.LdcInsnNode;
+import org.objectweb.asm.tree.MethodNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +11,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by Brady on 1/5/2017.
+ * @author Brady
+ * @since 1/5/2017 12:00 PM
  */
 public final class ConstructorStringScanner extends StringScanner {
 

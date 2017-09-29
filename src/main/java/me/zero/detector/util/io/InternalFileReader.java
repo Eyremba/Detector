@@ -1,7 +1,8 @@
 package me.zero.detector.util.io;
 
 /**
- * Created by Brady on 1/5/2017.
+ * @author Brady
+ * @since 1/5/2017 12:00 PM
  */
 public class InternalFileReader {
 

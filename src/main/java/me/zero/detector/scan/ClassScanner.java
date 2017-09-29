@@ -5,7 +5,8 @@ import org.objectweb.asm.tree.ClassNode;
 import java.util.List;
 
 /**
- * Created by Brady on 1/3/2017.
+ * @author Brady
+ * @since 1/3/2017 12:00 PM
  */
 public interface ClassScanner {
 
