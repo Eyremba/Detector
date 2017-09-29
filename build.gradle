@@ -3,9 +3,9 @@ version '1.0'
 
 apply plugin: 'java'
 
-sourceCompatibility = targetCompatibility = 9
+sourceCompatibility = targetCompatibility = 1.8
 compileJava {
-    sourceCompatibility = targetCompatibility = 9
+    sourceCompatibility = targetCompatibility = 1.8
 }
 
 repositories {
