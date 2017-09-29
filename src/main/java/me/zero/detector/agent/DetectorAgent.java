@@ -19,7 +19,7 @@ public final class DetectorAgent {
 
     public static void agentmain(String args, Instrumentation instrumentation) {
         List<Class> loadedClasses = new ArrayList<>(Arrays.asList(instrumentation.getAllLoadedClasses()));
-        loadedClasses.removeIf(DetectorAgent::isTarget);
+        loadedClasses.removeIf(c -> !isTarget(c));
 
         PoolLoader transformer = new PoolLoader();
         instrumentation.addTransformer(transformer);
