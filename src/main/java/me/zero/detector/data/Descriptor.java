@@ -1,11 +1,11 @@
 package me.zero.detector.data;
 
-import java.lang.reflect.Method;
-
 /**
  * Created by Brady on 1/5/2017.
  */
-public class Descriptor {
+public final class Descriptor {
+
+    private Descriptor() {}
 
     public static String getDescriptorForClass(Class c) {
         if (c.isPrimitive()) {
@@ -31,6 +31,10 @@ public class Descriptor {
         }
         if (c.isArray()) return c.getName().replace('.', '/');
         return ('L' + c.getName() + ';').replace('.', '/');
+    }
+
+    public static String getJvmName(Class<?> c) {
+        return c.getCanonicalName().replace('.', '/');
     }
 
     public static String getDescriptor(Class<?> returnType, Class<?>... classes) {
