@@ -35,7 +35,7 @@ public final class Descriptor {
     }
 
     public static String getJvmName(Class<?> c) {
-        return c.getCanonicalName().replace('.', '/');
+        return c.getCanonicalName().replace('.', '/') + ".class";
     }
 
     public static String getDescriptor(Class<?> returnType, Class<?>... classes) {

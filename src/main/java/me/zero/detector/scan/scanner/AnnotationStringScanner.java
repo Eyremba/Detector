@@ -36,7 +36,7 @@ public final class AnnotationStringScanner extends StringScanner {
 
         // noinspection unchecked
         return allAnnotations.stream()
-                .filter(annotation -> ((List<Object>) annotation.values).stream().filter(value -> BAD_STRINGS.contains(value.toString())).count() > 0)
+                .filter(annotation -> ((List<Object>) annotation.values).stream().anyMatch(value -> BAD_STRINGS.contains(value.toString())))
                 .map(ScanResult::annotation)
                 .collect(Collectors.toList());
     }
