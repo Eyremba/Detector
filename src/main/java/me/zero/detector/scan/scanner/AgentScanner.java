@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.objectweb.asm.Opcodes.ACC_STATIC;
+
 /**
  * @author Brady
  * @since 1/5/2017 12:00 PM
@@ -26,7 +28,7 @@ public final class AgentScanner implements ClassScanner {
     public final List<ScanResult> scan(ClassNode cn) {
         // noinspection unchecked
         return ((List<MethodNode>) cn.methods).stream()
-                .filter(method -> AGENT_METHODS.contains(method.name + method.desc))
+                .filter(method -> (method.access & ACC_STATIC) != 0 && AGENT_METHODS.contains(method.name + method.desc))
                 .map(ScanResult::method)
                 .collect(Collectors.toList());
     }
